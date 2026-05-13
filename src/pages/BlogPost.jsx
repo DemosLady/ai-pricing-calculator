@@ -1,46 +1,25 @@
 import { useParams, Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { BLOG_POSTS } from "../data/posts.js";
 
 const ADSENSE_PUB_ID = "ca-pub-7675527666098811";
 const ADS_ENABLED = true;
 
 function BlogAdBanner({ slot }) {
-  const [adLoaded, setAdLoaded] = useState(false);
-
-  useEffect(() => {
-    if (ADS_ENABLED) {
-      try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-        const timer = setTimeout(() => {
-          const container = document.querySelector(`[data-ad-slot="${slot}"]`);
-          if (container && container.offsetHeight > 0) setAdLoaded(true);
-        }, 2000);
-        return () => clearTimeout(timer);
-      } catch (e) { console.error("AdSense error:", e); }
-    }
-  }, [slot]);
-
   return (
-    <div style={{ margin: "28px 0", textAlign: "center", overflow: "hidden", minHeight: 90, position: "relative" }}>
-      {ADS_ENABLED && (
-        <ins className="adsbygoogle" style={{ display: "block" }}
-          data-ad-client={ADSENSE_PUB_ID} data-ad-slot={slot}
-          data-ad-format="auto" data-full-width-responsive="true" />
-      )}
-      {!adLoaded && (
-        <div style={{
-          position: ADS_ENABLED ? "absolute" : "relative",
-          top: 0, left: 0, right: 0, bottom: 0,
-          border: "1.5px dashed #d0d0d0", borderRadius: 10, padding: "14px 20px",
-          background: "#fafaf8", display: "flex", alignItems: "center", justifyContent: "center",
-          minHeight: 90, zIndex: 0,
-        }}>
-          <div style={{ fontSize: 11, color: "#bbb", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em" }}>
-            Advertisement
-          </div>
+    <div style={{ margin: "28px 0", textAlign: "center", overflow: "hidden" }}>
+      <ins className="adsbygoogle" style={{ display: "none" }}
+        data-ad-client={ADSENSE_PUB_ID} data-ad-slot={slot}
+        data-ad-format="auto" data-full-width-responsive="true" />
+      <div style={{
+        border: "1.5px dashed #d0d0d0", borderRadius: 10, padding: "14px 20px",
+        background: "#fafaf8", minHeight: 90,
+        display: "flex", alignItems: "center", justifyContent: "center",
+      }}>
+        <div style={{ fontSize: 11, color: "#bbb", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em" }}>
+          Advertisement
         </div>
-      )}
+      </div>
     </div>
   );
 }

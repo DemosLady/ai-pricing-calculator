@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
 
 const MODELS = [
   { id: "gpt54", name: "GPT-5.4", provider: "OpenAI", input: 2.50, output: 10.00, context: "128K", badge: null, color: "#10a37f" },
@@ -25,6 +25,47 @@ const PRESETS = [
 ];
 
 const PROVIDERS = ["All", "OpenAI", "Anthropic", "Google", "xAI", "DeepSeek", "Meta"];
+
+// ━━━ ADSENSE CONFIG ━━━
+// Replace this with your actual AdSense publisher ID after approval
+const ADSENSE_PUB_ID = "ca-pub-7675527666098811";
+const ADS_ENABLED = true;
+
+function AdBanner({ slot, format = "auto", style: customStyle = {} }) {
+  useEffect(() => {
+    if (ADS_ENABLED) {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {
+        console.error("AdSense error:", e);
+      }
+    }
+  }, []);
+
+  if (!ADS_ENABLED) {
+    return (
+      <div style={{
+        border: "1.5px dashed #d0d0d0", borderRadius: 10, padding: "14px 20px",
+        textAlign: "center", margin: "20px 0", background: "#fafaf8",
+        ...customStyle,
+      }}>
+        <div style={{ fontSize: 11, color: "#bbb", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em" }}>
+          Ad space reserved — activate after AdSense approval
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div style={{ margin: "20px 0", textAlign: "center", overflow: "hidden", ...customStyle }}>
+      <ins className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client={ADSENSE_PUB_ID}
+        data-ad-slot={slot}
+        data-ad-format={format}
+        data-full-width-responsive="true" />
+    </div>
+  );
+}
 
 function formatCost(v) {
   if (v < 0.01) return "$" + v.toFixed(4);
@@ -146,6 +187,9 @@ export default function AIPricingCalculator() {
         </p>
       </div>
 
+      {/* AD SLOT 1 — below header */}
+      <AdBanner slot="1234567890" format="horizontal" />
+
       {/* USE CASE PRESETS */}
       <div style={{ marginBottom: 32 }}>
         <div style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "#999", marginBottom: 10 }}>Quick presets</div>
@@ -246,6 +290,9 @@ export default function AIPricingCalculator() {
         ))}
       </div>
 
+      {/* AD SLOT 2 — between cards and summary */}
+      <AdBanner slot="0987654321" format="auto" />
+
       {/* SUMMARY BAR */}
       {calculated.results.length >= 2 && (
         <div style={{
@@ -274,6 +321,9 @@ export default function AIPricingCalculator() {
           </div>
         </div>
       )}
+
+      {/* AD SLOT 3 — before educational content */}
+      <AdBanner slot="1122334455" format="horizontal" />
 
       {/* HOW IT WORKS */}
       <div style={{ marginBottom: 48 }}>

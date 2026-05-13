@@ -3,26 +3,133 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary SEO -->
     <title>AI API Pricing Calculator — Compare GPT, Claude, Gemini Token Costs (2026)</title>
-    <meta name="description" content="Free AI API pricing calculator. Compare token costs across GPT-5.4, Claude Opus, Gemini, Grok, DeepSeek & Llama. Calculate monthly API costs instantly." />
-    <meta name="keywords" content="AI token calculator, LLM pricing, GPT API cost, Claude pricing, Gemini API cost, AI API comparison, token cost estimator" />
-    <link rel="canonical" href="https://yourdomain.com/" />
+    <meta name="description" content="Free AI API pricing calculator. Compare token costs across GPT-5.4, Claude Opus 4.6, Gemini, Grok, DeepSeek & Llama. Calculate monthly API costs instantly. Updated May 2026." />
+    <meta name="keywords" content="AI token calculator, LLM pricing calculator, GPT API cost, Claude API pricing, Gemini API cost, AI API comparison, token cost estimator, LLM cost comparison, AI model pricing 2026, GPT-5 pricing, Claude Opus price, DeepSeek pricing, AI budget calculator" />
+    <link rel="canonical" href="https://ai-pricing-calculator.vercel.app/" />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="AI API Pricing Calculator — Compare Token Costs (2026)" />
-    <meta property="og:description" content="Free tool to compare AI API costs across GPT-5.4, Claude, Gemini, Grok, DeepSeek & Llama." />
+    <!-- Robots -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+    <meta name="googlebot" content="index, follow" />
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+    <meta property="og:title" content="AI API Pricing Calculator — Compare Token Costs Across 12+ Models" />
+    <meta property="og:description" content="Free tool to compare AI API costs across GPT-5.4, Claude, Gemini, Grok, DeepSeek & Llama. See real monthly costs, not just per-token prices." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://yourdomain.com/" />
+    <meta property="og:url" content="https://ai-pricing-calculator.vercel.app/" />
+    <meta property="og:site_name" content="AI API Pricing Calculator" />
+    <meta property="og:locale" content="en_US" />
 
-    <!-- Twitter -->
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="AI API Pricing Calculator" />
-    <meta name="twitter:description" content="Compare token costs across 12+ AI models. Free tool." />
+    <meta name="twitter:title" content="AI API Pricing Calculator — Free Token Cost Comparison" />
+    <meta name="twitter:description" content="Compare token costs across 12+ AI models. Calculate real monthly API costs instantly. Free tool, updated May 2026." />
 
-    <!-- Google AdSense — replace with your actual code after approval -->
-    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+    <!-- Additional SEO signals -->
+    <meta name="author" content="AI Pricing Calculator" />
+    <meta name="theme-color" content="#1a1a1a" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="AI Price Calc" />
 
-    <!-- Google Search Console verification — replace with your code -->
+    <!-- Schema.org Structured Data — WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "AI API Pricing Calculator",
+      "url": "https://ai-pricing-calculator.vercel.app/",
+      "description": "Free calculator to compare token costs across GPT-5.4, Claude Opus 4.6, Gemini, Grok, DeepSeek and Llama AI models. Estimate monthly API costs with interactive sliders.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Compare 12+ AI model prices",
+        "Interactive cost sliders",
+        "Monthly cost projections",
+        "Use-case templates (chatbot, code assistant, RAG)",
+        "Cost-per-conversation metric",
+        "Filter by provider"
+      ],
+      "dateModified": "2026-05-13"
+    }
+    </script>
+
+    <!-- Schema.org — FAQPage (helps get rich snippets in Google) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does the GPT-5.4 API cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GPT-5.4 costs $2.50 per million input tokens and $10.00 per million output tokens as of May 2026. The mini version costs $0.40/$1.60 and nano costs $0.10/$0.40 per million tokens."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does the Claude API cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Claude Opus 4.6 costs $5.00/$25.00 per million tokens (input/output). Claude Sonnet 4.6 costs $3.00/$15.00, and Claude Haiku 4.5 costs $1.00/$5.00 per million tokens as of May 2026."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the cheapest AI API in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The cheapest AI APIs in 2026 are GPT-5.4 nano ($0.10/$0.40 per MTok), Llama 4 Maverick ($0.15/$0.60), and DeepSeek V3 ($0.27/$1.10). For most tasks, these budget models perform comparably to premium options."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a token in AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A token is a chunk of text that AI models process. In English, 1 token equals approximately 4 characters or 3/4 of a word. A 1,000-word document uses roughly 1,300 tokens. You pay for both input tokens (what you send) and output tokens (what the AI generates)."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Schema.org — BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ai-pricing-calculator.vercel.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AI API Pricing Calculator",
+          "item": "https://ai-pricing-calculator.vercel.app/"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7675527666098811" crossorigin="anonymous"></script>
+
+    <!-- Google Search Console verification — replace YOUR_CODE_HERE after setup -->
     <!-- <meta name="google-site-verification" content="YOUR_CODE_HERE" /> -->
   </head>
   <body>

@@ -32,37 +32,50 @@ const ADSENSE_PUB_ID = "ca-pub-7675527666098811";
 const ADS_ENABLED = true;
 
 function AdBanner({ slot, format = "auto", style: customStyle = {} }) {
+  const [adLoaded, setAdLoaded] = useState(false);
+
   useEffect(() => {
     if (ADS_ENABLED) {
       try {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
+        const timer = setTimeout(() => {
+          const container = document.querySelector(`[data-ad-slot="${slot}"]`);
+          if (container && container.offsetHeight > 0) {
+            setAdLoaded(true);
+          }
+        }, 2000);
+        return () => clearTimeout(timer);
       } catch (e) {
         console.error("AdSense error:", e);
       }
     }
-  }, []);
+  }, [slot]);
 
-  if (!ADS_ENABLED) {
-    return (
-      <div style={{
-        border: "1.5px dashed #d0d0d0", borderRadius: 10, padding: "14px 20px",
-        textAlign: "center", margin: "20px 0", background: "#fafaf8",
-        ...customStyle,
-      }}>
-        <div style={{ fontSize: 11, color: "#bbb", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em" }}>
-          Ad space reserved — activate after AdSense approval
-        </div>
-      </div>
-    );
-  }
   return (
-    <div style={{ margin: "20px 0", textAlign: "center", overflow: "hidden", ...customStyle }}>
-      <ins className="adsbygoogle"
-        style={{ display: "block" }}
-        data-ad-client={ADSENSE_PUB_ID}
-        data-ad-slot={slot}
-        data-ad-format={format}
-        data-full-width-responsive="true" />
+    <div style={{ margin: "20px 0", textAlign: "center", overflow: "hidden", minHeight: 90, position: "relative", ...customStyle }}>
+      {/* AdSense code — will activate automatically when approved */}
+      {ADS_ENABLED && (
+        <ins className="adsbygoogle"
+          style={{ display: "block" }}
+          data-ad-client={ADSENSE_PUB_ID}
+          data-ad-slot={slot}
+          data-ad-format={format}
+          data-full-width-responsive="true" />
+      )}
+      {/* Visible placeholder until ad loads */}
+      {!adLoaded && (
+        <div style={{
+          position: ADS_ENABLED ? "absolute" : "relative",
+          top: 0, left: 0, right: 0, bottom: 0,
+          border: "1.5px dashed #d0d0d0", borderRadius: 10, padding: "14px 20px",
+          background: "#fafaf8", display: "flex", alignItems: "center", justifyContent: "center",
+          minHeight: 90, zIndex: 0,
+        }}>
+          <div style={{ fontSize: 11, color: "#bbb", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em" }}>
+            Advertisement
+          </div>
+        </div>
+      )}
     </div>
   );
 }

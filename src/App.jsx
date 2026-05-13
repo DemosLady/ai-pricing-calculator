@@ -187,8 +187,7 @@ export default function AIPricingCalculator() {
   const totalOutputPerMonth = outputTokens * callsPerDay * 30;
 
   return (
-    <div style={{ fontFamily: "'IBM Plex Sans', -apple-system, sans-serif", maxWidth: 900, margin: "0 auto", padding: "0 16px", color: "#1a1a1a" }}>
-      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 16px", color: "#1a1a1a" }}>
 
       <div style={{ textAlign: "center", padding: "48px 0 36px" }}>
         <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em", color: "#999", marginBottom: 8 }}>Free tool · Updated May 2026</div>
@@ -356,11 +355,6 @@ export default function AIPricingCalculator() {
         </div>
       </div>
 
-      {/* FOOTER */}
-      <div style={{ textAlign: "center", padding: "24px 0 48px", borderTop: "1px solid #eeece7", fontSize: 12, color: "#bbb" }}>
-        <div style={{ marginBottom: 6 }}>Prices sourced from official provider documentation · Last updated: May 2026</div>
-        <div>Built with care · Free to use · No tracking</div>
-      </div>
     </div>
   );
 }
